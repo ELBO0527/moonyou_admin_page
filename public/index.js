@@ -40,25 +40,26 @@ const setupPosts = (data)=>{
     });
     postList.innerHTML = html;
 
-    $(document).ready(function(){
-        $('.collapsible').collapsible();
-      });
-
     const editIcons = document.querySelectorAll('.edit');
-    editIcons.forEach(editIcons =>{
+    editIcons.forEach(editIcons=>{
         editIcons.addEventListener('click', (e)=>{
+          
             let id = e.target.parentElement.getAttribute('id');
             let postTitle = e.target.parentElement.getAttribute('title');
             let postContent = e.target.parentElement.getAttribute('content');
-            console.log(postTitle)
-            const updatePost = document.querySelectorAll('#update-form');
+            
+            const updatePost = document.querySelector('#update-form');
+            for(var i=0; i<updatePost.length; i++){
+                console.log(updatePost[i].id)
+            }
+            
             updatePost.title.value = postTitle;
             updatePost.content.value = postContent;
-
+           
             updatePost.addEventListener('submit', (e)=>{
                 e.preventDefault();
         
-                db.collection("board").doc(id).set({
+                db.collection("board").doc(id).update({
                   title : updatePost.title.value,
                   content : updatePost.content.value,
                   runtime : Number(updatePost.runtime.value),
@@ -69,41 +70,38 @@ const setupPosts = (data)=>{
                 const modal = document.querySelector('#modal-update');
                 M.Modal.getInstance(modal).close();
                 updatePost.reset();
-                console.log('update success');
-              }).caatch(function(error){
-                  console.error("update error")
+                alert('수정이 완료되었습니다.');
+              }).catch(function(error){
+                  alert.error("수정 오류")
               })
               
               
             })
 
-            })
         })
-    
+    })
 
-        const deleteIcons = document.querySelectorAll('.delete');
-         deleteIcons.forEach(deleteIcon =>{
-              deleteIcon.addEventListener('click', (e)=>{
-                e.stopPropagation();
-                let id = e.target.parentElement.getAttribute('id');
-              
-            })
-         })
-     }else{
-        if(auth.currentUser != null){
-         postList.innerHTML = '<h4 class="center-align">공연을 등록하세요.</h4>';
-     }else{
-        postList.innerHTML = '<h4 class="center-align">관리자 계정으로 로그인하십시오.</h4>';
+    const deleteIcons = document.querySelectorAll('.delete');
+    deleteIcons.forEach(deleteIcon =>{
+         deleteIcon.addEventListener('click', (e)=>{
+           e.stopPropagation();
+           let id = e.target.parentElement.getAttribute('id');
+           db.collection("board").doc(id).delete();
+       })
+    })
+        }else{
+             if(auth.currentUser != null){
+             postList.innerHTML = '<h4 class="center-align">공연을 등록하세요.</h4>';
+        }else{
+            postList.innerHTML = '<h4 class="center-align">관리자 계정으로 로그인하십시오.</h4>';
+            }
         }
-      }    
-    }
+    
+ 
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+      });
 
-
-// document.addEventListener('DOMContentLoaded', function(){
-
-//     var modals = document.querySelectorAll('.modal');
-//     MSAssertion.Modal.init(modals)
-
-//     var items = doument.querySelectorAll('.collapsible');
-//     MSAssertion.Collapsible.init(items);
-// })
+    
+    
+}
