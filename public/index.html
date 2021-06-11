@@ -23,7 +23,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-functions.js"></script> 
 
 <nav class="z-depth-0 orange">
   <div class="nav-wrapper container">
@@ -77,8 +77,8 @@
         <label for="runtime">상영 시간을 입력하세요.</label>
       </div>
     <div class="input-field">
-      <textarea id="content" class="materialize-textarea" data-length="120" required></textarea>
-      <label for="content">줄거리를 입력하세요.</label>
+      <textarea id="notice" class="materialize-textarea" data-length="120" required></textarea>
+      <label for="notice">줄거리를 입력하세요.</label>
     </div>
     <button class="btn orange z-depth-0">등록</button>
      </form>
@@ -97,28 +97,28 @@
     <h4>공연 정보 수정</h4>
      <form id="update-form">
       <div class="input-field">
-        <input id="title" type="text" name="title" data-length="10">
+        <input placeholder=" " id="title" type="text" name="title" data-length="10">
         <label for="title">공연 제목을 입력하세요.</label>
       </div>
       <div class="input-field">
-        <input id="startday" type="text" data-length="10">
+        <input placeholder=" " id="startday" type="text" data-length="10">
         <label for="startday">시작일을 설정하세요.예)21.05.27</label>
       </div>
       <div class="input-field">
-        <input id="finishday" type="text" data-length="10">
+        <input placeholder=" " id="finishday" type="text" data-length="10">
         <label for="finishday ">종료일을 설정하세요.예)21.08.01</label>
       </div>
       <div class="input-field">
-        <input id="state" type="text" data-length="10">
+        <input placeholder=" " id="state" type="text" data-length="10">
         <label for="state ">상영 예정, 상영중 혹은 상영종료</label>
       </div>
       <div class="input-field">
-        <input id="runtime" type="text" data-length="10">
+        <input placeholder=" " id="runtime" type="text" data-length="10">
         <label for="runtime">상영 시간을 입력하세요.</label>
       </div>
     <div class="input-field">
-      <textarea id="content" class="materialize-textarea" data-length="120" required></textarea>
-      <label for="content">줄거리를 입력하세요.</label>
+      <textarea placeholder=" " id="notice" class="materialize-textarea" data-length="120" required></textarea>
+      <label for="notice">줄거리를 입력하세요.</label>
     </div>
     <button class="btn orange z-depth-0">수정</button>
      </form>
@@ -166,13 +166,14 @@
   <!--JavaScript at end of body for optimized loading-->
   <script> 
   const firebaseConfig = {
-  apiKey: "AIzaSyDFqidfc4tj8ftKmaHII6eEhP-ozB0GxvE",
-  authDomain: "wookpage03.firebaseapp.com",
-  projectId: "wookpage03",
-  storageBucket: "wookpage03.appspot.com",
-  messagingSenderId: "706968237923",
-  appId: "1:706968237923:web:c572876e53a96b44cbc556",
-  measurementId: "G-C171CC4F83"
+  apiKey: "AIzaSyBnAranfoaOkinZmnI7ZeyS6lS3_6ANTZs",
+  authDomain: "moonyou-test.firebaseapp.com",
+  databaseURL: "https://moonyou-test-default-rtdb.firebaseio.com",
+  projectId: "moonyou-test",
+  storageBucket: "moonyou-test.appspot.com",
+  messagingSenderId: "926150406764",
+  appId: "1:926150406764:web:3c4e65a576aea95db99e49",
+  measurementId: "G-H0VP5Z4DNB"  
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -181,7 +182,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const functions = firebase.functions();
 const auth = firebase.auth();
-//const storageRef = firebase.storage().ref();
+const storageRef = firebase.storage().ref();
 
 </script>
 
