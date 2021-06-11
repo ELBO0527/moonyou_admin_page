@@ -7,7 +7,7 @@ $(document).ready(function(){
   auth.onAuthStateChanged(user =>{
     if(user){
       console.log('로그인 성공')
-      db.collection('board').onSnapshot(snapshot=>{
+      db.collection('show_info').onSnapshot(snapshot=>{
         setupPosts(snapshot.docs);
         loginCheck(user);
     }),error => {
