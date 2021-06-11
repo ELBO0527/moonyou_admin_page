@@ -17,22 +17,23 @@ const setupPosts = (data)=>{
     if(data.length){
     let html = '';
     data.forEach(doc=>{
-        const board = doc.data();
+        const show_info = doc.data();
 
         const li= `
             <li>
-                <div class="collapsible-header grey lighten-4">${board.title}
+                <div class="collapsible-header grey lighten-4">${show_info.title}
                     <div class="adminControls right">
-                        <div id="${doc.id}" title="${board.title}" content="${board.content}" style="display:block">
+                        <div id="${doc.id}" title="${show_info.title}" notice="${show_info.notice}" startday="${show_info.startday}" 
+                        finishday="${show_info.finishday}" state="${show_info.state}" startday="${show_info.startday}" runtime="${show_info.runtime}" style="display:block">
                             <i class="edit material-icons modal-trigger" href="#modal-update">edit</i>    
                             <i class="delete material-icons red-text">delete</i>
                         </div>
                     </div>
                 </div>    
-                <div class="collapsible-body white"><span>줄거리 : ${board.content}</span></div>
-                <div class="collapsible-body white"><span>상영 기간 : ${board.startday}~${board.finishday}</span></div>
-                <div class="collapsible-body white"><span>상영 길이 : ${board.runtime}</span></div>
-                <div class="collapsible-body white"><span>상태 : ${board.state}</span></div>
+                <div class="collapsible-body white"><span>줄거리 : ${show_info.notice}</span></div>
+                <div class="collapsible-body white"><span>상영 기간 : ${show_info.startday}~${show_info.finishday}</span></div>
+                <div class="collapsible-body white"><span>상영 길이 : ${show_info.runtime}</span></div>
+                <div class="collapsible-body white"><span>상태 : ${show_info.state}</span></div>
                 <li>    
         `;
         
@@ -46,22 +47,33 @@ const setupPosts = (data)=>{
           
             let id = e.target.parentElement.getAttribute('id');
             let postTitle = e.target.parentElement.getAttribute('title');
-            let postContent = e.target.parentElement.getAttribute('content');
+            let postNotice = e.target.parentElement.getAttribute('notice');
+            let postState = e.target.parentElement.getAttribute('state');
+            let postStartday = e.target.parentElement.getAttribute('startday');
+            let postFinishday = e.target.parentElement.getAttribute('finishday');
+            let postRuntime = e.target.parentElement.getAttribute('runtime');
             
             const updatePost = document.querySelector('#update-form');
+            
             for(var i=0; i<updatePost.length; i++){
                 console.log(updatePost[i].id)
             }
             
+            console.log(postState);
+
             updatePost.title.value = postTitle;
-            updatePost.content.value = postContent;
+            updatePost.notice.value = postNotice;
+            updatePost.state.value = postState;
+            updatePost.startday.value = postStartday;
+            updatePost.finishday.value = postFinishday;
+            updatePost.runtime.value = postRuntime;
            
             updatePost.addEventListener('submit', (e)=>{
                 e.preventDefault();
         
-                db.collection("board").doc(id).update({
+                db.collection("show_info").doc(id).update({
                   title : updatePost.title.value,
-                  content : updatePost.content.value,
+                  notice : updatePost.notice.value,
                   runtime : Number(updatePost.runtime.value),
                   startday : updatePost.startday.value,
                   finishday : updatePost.finishday.value,
@@ -86,7 +98,7 @@ const setupPosts = (data)=>{
          deleteIcon.addEventListener('click', (e)=>{
            e.stopPropagation();
            let id = e.target.parentElement.getAttribute('id');
-           db.collection("board").doc(id).delete();
+           db.collection("show_info").doc(id).delete();
        })
     })
         }else{
