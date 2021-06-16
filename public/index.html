@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
-  
+<html lang="ko">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">>
 <head>
 	<!-- jQuery  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -10,9 +11,11 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <!--Import meterialize icons-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+  <script src="/js/datepicker-ko.js"></script>
+  <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 
 </head>
 <body>
@@ -59,26 +62,174 @@
       <div class="input-field">
         <input id="title" type="text" data-length="10">
         <label for="title">공연 제목을 입력하세요.</label>
+      </div>  
+      <div class="parent" style="display: flex;" >
+      <div class="input-field" style="flex: 1; width: 22%;" >
+          <select name = "year"> 
+             <option value = "21year" selected>2021</option>
+             <option value = "22year">2022</option>
+             <option value = "23year">2023</option>
+             <option value = "24year">2024</option>
+             <option value = "25year">2025</option>
+             <option value = "26year">2026</option>
+             <option value = "27year">2027</option>
+             <option value = "28year">2028</option>
+             <option value = "29year">2029</option>
+         </select> 
+        <label>시작일 설정(년/월/일)</label>  
+       </div>
+
+        <div class="input-field" style="flex: 1;">
+          <select name = "month">
+            <option value = "1month"  selected>1</option>
+            <option value = "2month">2</option>
+            <option value = "3month">3</option>
+            <option value = "4month">4</option>
+            <option value = "5month">5</option>
+            <option value = "6month">6</option>
+            <option value = "7month">7</option>
+            <option value = "8month">8</option>
+            <option value = "9month">9</option>
+            <option value = "10month">10</option>
+            <option value = "11month">11</option>
+            <option value = "12month">12</option>
+         </select>
+         </div>
+
+         <div class="input-field" style="flex: 1;">
+         <select name = "day">
+          <option value = "1day" selected>1</option>
+          <option value = "2day">2</option>
+          <option value = "3day">3</option>
+          <option value = "4day">4</option>
+          <option value = "5day">5</option>
+          <option value = "6day">6</option>
+          <option value = "7day">7</option>
+          <option value = "8day">8</option>
+          <option value = "9day">9</option>
+          <option value = "10day">10</option>
+          <option value = "11day">11</option>
+          <option value = "12day">12</option>
+          <option value = "13day" >13</option>
+          <option value = "14day">14</option>
+          <option value = "15day">15</option>
+          <option value = "16day">16</option>
+          <option value = "17day">17</option>
+          <option value = "18day">18</option>
+          <option value = "19day">19</option>
+          <option value = "20day">20</option>
+          <option value = "21day">21</option>
+          <option value = "22day">22</option>
+          <option value = "23day">23</option>
+          <option value = "24day">24</option>
+          <option value = "25day" >25</option>
+          <option value = "26day">26</option>
+          <option value = "27day">27</option>
+          <option value = "28day">28</option>
+          <option value = "29day">29</option>
+          <option value = "30day">30</option>
+          <option value = "31day">31</option>
+       </select>
       </div>
-      <div class="input-field">
-        <input id="startday" type="text" data-length="10">
-        <label for="startday">시작일을 설정하세요.예)21.05.27</label>
+    </div>
+    <div class="parent" style="display: flex;" >
+      <div class="input-field" style="flex: 1;">
+          <select name = "year" class="year"> 
+             <option value = "21year" selected>2021</option>
+             <option value = "22year">2022</option>
+             <option value = "23year">2023</option>
+             <option value = "24year">2024</option>
+             <option value = "25year">2025</option>
+             <option value = "26year">2026</option>
+             <option value = "27year">2027</option>
+             <option value = "28year">2028</option>
+             <option value = "29year">2029</option>
+         </select> 
+        <label>종료일 설정(년/월/일)</label>  
+        </div>
+        <div class="input-field" style="flex: 1;">
+          <select name = "month " class="month">
+            <option value = "1month"  selected>1</option>
+            <option value = "2month">2</option>
+            <option value = "3month">3</option>
+            <option value = "4month">4</option>
+            <option value = "5month">5</option>
+            <option value = "6month">6</option>
+            <option value = "7month">7</option>
+            <option value = "8month">8</option>
+            <option value = "9month">9</option>
+            <option value = "10month">10</option>
+            <option value = "11month">11</option>
+            <option value = "12month">12</option>
+         </select>
+         </div>
+         <div class="input-field" style="flex: 1;">
+         <select name = "day" class="day">
+          <option value = "1day" selected>1</option>
+          <option value = "2day">2</option>
+          <option value = "3day">3</option>
+          <option value = "4day">4</option>
+          <option value = "5day">5</option>
+          <option value = "6day">6</option>
+          <option value = "7day">7</option>
+          <option value = "8day">8</option>
+          <option value = "9day">9</option>
+          <option value = "10day">10</option>
+          <option value = "11day">11</option>
+          <option value = "12day">12</option>
+          <option value = "13day" >13</option>
+          <option value = "14day">14</option>
+          <option value = "15day">15</option>
+          <option value = "16day">16</option>
+          <option value = "17day">17</option>
+          <option value = "18day">18</option>
+          <option value = "19day">19</option>
+          <option value = "20day">20</option>
+          <option value = "21day">21</option>
+          <option value = "22day">22</option>
+          <option value = "23day">23</option>
+          <option value = "24day">24</option>
+          <option value = "25day" >25</option>
+          <option value = "26day">26</option>
+          <option value = "27day">27</option>
+          <option value = "28day">28</option>
+          <option value = "29day">29</option>
+          <option value = "30day">30</option>
+          <option value = "31day">31</option>
+       </select>
       </div>
-      <div class="input-field">
-        <input id="finishday" type="text" data-length="10">
-        <label for="finishday ">종료일을 설정하세요.예)21.08.01</label>
-      </div>
-      <div class="input-field">
-        <input id="state" type="text" data-length="10">
-        <label for="state ">상영 예정, 상영중 혹은 상영종료</label>
-      </div>
-      <div class="input-field">
-        <input id="runtime" type="text" data-length="10">
-        <label for="runtime">상영 시간을 입력하세요.</label>
-      </div>
+    </div>
+
     <div class="input-field">
-      <textarea id="notice" class="materialize-textarea" data-length="120" required></textarea>
-      <label for="notice">줄거리를 입력하세요.</label>
+      <select name = "place" class="place"> 
+         <option value = "incheonart" selected>인천문화예술회관</option>
+         <option value = "arco">아르코예술극장</option>
+         <option value = "guro">구로아트밸리예술극장</option>
+         <option value = "seoul">서울연극센터</option>
+         <option value = "arthole">서연아트홀</option>
+         <option value = "incheon">인천시립극단</option>
+     </select> 
+    <label for="place">공연장 선택</label>  
+    </div>
+
+      <div class="input-field" style="display: flex;">
+        <div class="input-field" style="width: 30%; flex: 1;">
+        <input id="datepicker" type="text"  data-length="10"  min="2021-06-15">
+        <label for="showtime">공연 시간대</label>
+        </div>
+        <div class="input-field" style="width: 30%; flex: 1;">
+         &emsp; <input type="text" id="time1" value="시작시간" name="time1" class="form-control" style="width:200px;">
+         ~
+         </div>
+         <div class="input-field" style="width: 30%; flex: 1; ">
+      <input type="text" id="time2" value="종료시간" name="time1" class="form-control" style="width:200px;">
+        </div>
+    </div>
+      </div>
+
+    <div class="input-field">
+      <textarea id="notice" class="materialize-textarea" data-length="1year0" required></textarea>
+      <label for="notice">개요</label>
     </div>
     <button class="btn orange z-depth-0">등록</button>
      </form>
@@ -100,24 +251,164 @@
         <input placeholder=" " id="title" type="text" name="title" data-length="10">
         <label for="title">공연 제목을 입력하세요.</label>
       </div>
-      <div class="input-field">
-        <input placeholder=" " id="startday" type="text" data-length="10">
-        <label for="startday">시작일을 설정하세요.예)21.05.27</label>
+
+      <div class="parent" style="display: flex;" >
+        <div class="input-field" style="flex: 1;">
+            <select name = "year" class="year"> 
+               <option value = "21year" selected>21</option>
+               <option value = "22year">22</option>
+               <option value = "23year">23</option>
+               <option value = "24year">24</option>
+               <option value = "25year">25</option>
+               <option value = "26year">26</option>
+               <option value = "27year">27</option>
+               <option value = "28year">28</option>
+               <option value = "29year">29</option>
+           </select> 
+          <label>시작일 설정(년/월/일)</label>  
+          </div>
+          <div class="input-field" style="flex: 1;">
+            <select name = "month " class="month">
+              <option value = "1month"  selected>1</option>
+              <option value = "2month">2</option>
+              <option value = "3month">3</option>
+              <option value = "4month">4</option>
+              <option value = "5month">5</option>
+              <option value = "6month">6</option>
+              <option value = "7month">7</option>
+              <option value = "8month">8</option>
+              <option value = "9month">9</option>
+              <option value = "10month">10</option>
+              <option value = "11month">11</option>
+              <option value = "12month">12</option>
+           </select>
+           </div>
+
+           <div class="input-field" style="flex: 1;">
+           <select name = "day" class="day">
+            <option value = "1day" selected>1</option>
+            <option value = "2day">2</option>
+            <option value = "3day">3</option>
+            <option value = "4day">4</option>
+            <option value = "5day">5</option>
+            <option value = "6day">6</option>
+            <option value = "7day">7</option>
+            <option value = "8day">8</option>
+            <option value = "9day">9</option>
+            <option value = "10day">10</option>
+            <option value = "11day">11</option>
+            <option value = "12day">12</option>
+            <option value = "13day" >13</option>
+            <option value = "14day">14</option>
+            <option value = "15day">15</option>
+            <option value = "16day">16</option>
+            <option value = "17day">17</option>
+            <option value = "18day">18</option>
+            <option value = "19day">19</option>
+            <option value = "20day">20</option>
+            <option value = "21day">21</option>
+            <option value = "22day">22</option>
+            <option value = "23day">23</option>
+            <option value = "24day">24</option>
+            <option value = "25day" >25</option>
+            <option value = "26day">26</option>
+            <option value = "27day">27</option>
+            <option value = "28day">28</option>
+            <option value = "29day">29</option>
+            <option value = "30day">30</option>
+            <option value = "31day">31</option>
+         </select>
+        </div>
       </div>
-      <div class="input-field">
-        <input placeholder=" " id="finishday" type="text" data-length="10">
-        <label for="finishday ">종료일을 설정하세요.예)21.08.01</label>
+
+      <div class="parent" style="display: flex;" >
+        <div class="input-field" style="flex: 1;">
+            <select name = "year" class="year"> 
+               <option value = "21year" selected>21</option>
+               <option value = "22year">22</option>
+               <option value = "23year">23</option>
+               <option value = "24year">24</option>
+               <option value = "25year">25</option>
+               <option value = "26year">26</option>
+               <option value = "27year">27</option>
+               <option value = "28year">28</option>
+               <option value = "29year">29</option>
+           </select> 
+          <label>종료 설정(년/월/일)</label>  
+          </div>
+
+          <div class="input-field" style="flex: 1;">
+            <select name = "month " class="month">
+              <option value = "1month"  selected>1</option>
+              <option value = "2month">2</option>
+              <option value = "3month">3</option>
+              <option value = "4month">4</option>
+              <option value = "5month">5</option>
+              <option value = "6month">6</option>
+              <option value = "7month">7</option>
+              <option value = "8month">8</option>
+              <option value = "9month">9</option>
+              <option value = "10month">10</option>
+              <option value = "11month">11</option>
+              <option value = "12month">12</option>
+           </select>
+           </div>
+
+           <div class="input-field" style="flex: 1;">
+           <select name = "day" class="day">
+            <option value = "1day" selected>1</option>
+            <option value = "2day">2</option>
+            <option value = "3day">3</option>
+            <option value = "4day">4</option>
+            <option value = "5day">5</option>
+            <option value = "6day">6</option>
+            <option value = "7day">7</option>
+            <option value = "8day">8</option>
+            <option value = "9day">9</option>
+            <option value = "10day">10</option>
+            <option value = "11day">11</option>
+            <option value = "12day">12</option>
+            <option value = "13day" >13</option>
+            <option value = "14day">14</option>
+            <option value = "15day">15</option>
+            <option value = "16day">16</option>
+            <option value = "17day">17</option>
+            <option value = "18day">18</option>
+            <option value = "19day">19</option>
+            <option value = "20day">20</option>
+            <option value = "21day">21</option>
+            <option value = "22day">22</option>
+            <option value = "23day">23</option>
+            <option value = "24day">24</option>
+            <option value = "25day" >25</option>
+            <option value = "26day">26</option>
+            <option value = "27day">27</option>
+            <option value = "28day">28</option>
+            <option value = "29day">29</option>
+            <option value = "30day">30</option>
+            <option value = "31day">31</option>
+         </select>
+        </div>
       </div>
-      <div class="input-field">
-        <input placeholder=" " id="state" type="text" data-length="10">
-        <label for="state ">상영 예정, 상영중 혹은 상영종료</label>
-      </div>
+
+        <div class="input-field">
+          <select name = "place" class="place"> 
+             <option value = "incheonart" selected>인천문화예술회관</option>
+             <option value = "arco">아르코예술극장</option>
+             <option value = "guro">구로아트밸리예술극장</option>
+             <option value = "seoul">서울연극센터</option>
+             <option value = "arthole">서연아트홀</option>
+             <option value = "incheon">인천시립극단</option>
+         </select> 
+        <label>공연장 선택</label>  
+        </div>
+
       <div class="input-field">
         <input placeholder=" " id="runtime" type="text" data-length="10">
         <label for="runtime">상영 시간을 입력하세요.</label>
       </div>
     <div class="input-field">
-      <textarea placeholder=" " id="notice" class="materialize-textarea" data-length="120" required></textarea>
+      <textarea placeholder=" " id="notice" class="materialize-textarea" data-length="1year0" required></textarea>
       <label for="notice">줄거리를 입력하세요.</label>
     </div>
     <button class="btn orange z-depth-0">수정</button>
@@ -162,7 +453,6 @@
 </div>
 </div>
 
-
   <!--JavaScript at end of body for optimized loading-->
   <script> 
   const firebaseConfig = {
@@ -171,8 +461,8 @@
   databaseURL: "https://moonyou-test-default-rtdb.firebaseio.com",
   projectId: "moonyou-test",
   storageBucket: "moonyou-test.appspot.com",
-  messagingSenderId: "926150406764",
-  appId: "1:926150406764:web:3c4e65a576aea95db99e49",
+  messagingSenderId: "9year6150406764",
+  appId: "1:9year6150406764:web:3c4e65a576aea95db99e49",
   measurementId: "G-H0VP5Z4DNB"  
 };
 

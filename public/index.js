@@ -114,6 +114,36 @@ const setupPosts = (data)=>{
         $('.collapsible').collapsible();
       });
 
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+      });
     
+      // Or with jQuery
     
+      $(document).ready(function(){
+        $('select').formSelect();
+      });
+  /*  시간피커
+  $(function() {
+      $("#time1,#time2").timepicker({
+          timeFormat: 'h:mm p',
+          interval: 60,
+          minTime: '10',
+          maxTime: '23:00pm',
+          defaultTime: '11',
+          startTime: '10:00',
+          dynamic: false,
+          dropdown: true,
+          scrollbar: true        
+      });
+  });
+ 
+ /날짜피커
+    $(document).ready(function(){
+      $.datepicker.setDefaults($.datepicker.regional["ko"]);
+      $("#datepicker").datepicker();
+    });*/
+    
+
 }
