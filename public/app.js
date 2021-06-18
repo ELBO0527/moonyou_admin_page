@@ -8,14 +8,13 @@
 const create = document.querySelector('#create-form');
       create.addEventListener('submit', (e)=>{
         e.preventDefault();
-
+    
         db.collection("show_info").add({
+
           title : create.title.value,
           notice : create.notice.value,
-          runtime : Number(create.runtime.value),
           startday : create.startday.value,
           finishday : create.finishday.value,
-          state : create.state.value,
           hit : 0,
           image_Path : "lamancha_3.PNG"
       })

@@ -124,7 +124,7 @@ const setupPosts = (data)=>{
       $(document).ready(function(){
         $('select').formSelect();
       });
-  /*  시간피커
+
   $(function() {
       $("#time1,#time2").timepicker({
           timeFormat: 'h:mm p',
@@ -137,13 +137,52 @@ const setupPosts = (data)=>{
           dropdown: true,
           scrollbar: true        
       });
-  });
- 
- /날짜피커
-    $(document).ready(function(){
-      $.datepicker.setDefaults($.datepicker.regional["ko"]);
-      $("#datepicker").datepicker();
-    });*/
-    
+  });    
+  $(function() {
+$('#datepicker').datepicker({
+    format: 'yy.mm.dd',
+    language: "kr"
+  })
+  })
 
+
+
+    $(function() {
+    $("#year").change(function(){
+        const yearVal =  $(this).val();
+        console.log(yearVal);
+    })
+   $("#month").change(function(){
+        const monthVal =  $(this).val();
+        console.log(monthVal);
+    }) 
+    $("#day").change(function(){
+        const dayVal =  $(this).val();
+        console.log(dayVal);
+    })
+    $("#fyear").change(function(){
+        const fyearVal =  $(this).val();
+        console.log(fyearVal);
+    })
+    $("#fmonth").change(function(){
+        const fmonthVal =  $(this).val();
+        console.log(fmonthVal);
+    }) 
+    $("#fday").change(function(){
+        const fdayVal =  $(this).val();
+        console.log(fdayVal);
+
+    })
+
+});
+
+var addday = document.getElementById("addday");
+
+addday.addEventListener("click",addbtnClick,false);
+
+function addbtnClick(){
+    var div = document.createElement('div');
+    div.innerHTML = document.getElementById('dayg').innerHTML;
+    document.getElementById('dayfield').appendChild(div);
+}	
 }
