@@ -138,7 +138,8 @@
     <div class="parent" style="display: flex;" >
       <div class="input-field" style="flex: 1;">
           <select name = "fyear" id="fyear"> 
-             <option value = "21" selected>2021</option>
+            <option value = "20" selected>2021</option>
+             <option value = "21" >2021</option>
              <option value = "22">2022</option>
              <option value = "23">2023</option>
              <option value = "24">2024</option>
@@ -203,53 +204,62 @@
       </div>
     </div>
 
-    <div class="input-field">
+
+    <div class="parent" style="display: flex;" >
+    <div class="input-field" style="width: 200px; flex: 1"> 
       <select name = "place" class="place"> 
-         <option value = "incheonart" selected>인천문화예술회관</option>
-         <option value = "arco">아르코예술극장</option>
-         <option value = "guro">구로아트밸리예술극장</option>
-         <option value = "seoul">서울연극센터</option>
-         <option value = "arthole">서연아트홀</option>
-         <option value = "incheon">인천시립극단</option>
+        <option value = "known" selected>선택값없음</option>
+         <option value = "인천문화예술회관">인천문화예술회관</option>
+         <option value = "구로아트밸리예술극장">구로아트밸리예술극장</option>
+         <option value = "서울연극센터">서울연극센터</option>
+         <option value = "서연아트홀">서연아트홀</option>
+         <option value = "인천시립극단">인천시립극단</option>
      </select> 
     <label for="place">공연장 선택</label>  
     </div>
-    
-        <input type="button" id="addday" value="날짜추가">
-     
-        <div id="dayg">
-      <div class="input-field" style="display: flex;">
+    <div id="imagePreview" style="flex: 1; width: 200px;">
+    </div>
+    </div>
 
-        <div class="input-field" style="width: 10%; flex: 1;">
-        <input id="datepicker" type="text" min="2021-06-15" > 
+    
+    <div class="parent" style="display: flex;" >
+         <div>
+          <input type="button" id="daybtn" value="공연시간추가" style="flex:1;" >
+        </div>
+        <div>
+          <input type="button" id="daybtn" value="공연시간삭제" style="flex:1;" >
+        </div>
+        </div>
+    
+        <div class="dayg">
+      <div class="input-field" style="display: flex;">
+        <div class="input-field" id="daytime" style="width: 10%; flex: 1;">
+        <input class='DATE' type="text" min="2021-06-15" > 
         <label for="showtime">공연 시간대</label>
         </div>
         &emsp;
 
-        <div id="timeg" style="display: flex;">
+        <div class="timeg" style="display: flex;">
           <div class="input-field" style="width: 10%; flex: 1;">
-       <input type="text" id="time1" value="시작시간" name="time1" class="form-control" style="width:100px;">
+       <input type="text" class='time1' value="시작시간" name="time1" class="form-control" style="width:100px;">
          </div> &emsp;
          <div class="input-field" style="width: 10%; flex: 1;">
-        <input type="text" id="time2" value="종료시간" name="time1" class="form-control" style="width:100px;">
+        <input type="text" class='time2'  value="종료시간" name="time1" class="form-control" style="width:100px;">
         </div>
       </div>
 <br>
-      <div class="input-field" id="timefield" >
+      <div class="input-field" id="timefiled">
       </div>
 
         <div class="input-field" style= "flex: 1; ">
-          <input type="button" value="시간추가" id="addtime">
+          <input type="button" value="시간추가" id="timebtn">
          </div> 
       </div>
 
       </div> 
-      <div class="input-field" id="dayfield" style="width: 10%; flex: 1; ">
+      <div class="input-field" type="text" id="dayfield" style="width: 10%; flex: 1; ">
       </div>
-     
-      
-
-
+   
     <div class="input-field">
       <textarea id="notice" class="materialize-textarea" data-length="10" required></textarea>
       <label for="notice">개요</label>

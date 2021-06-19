@@ -8,9 +8,7 @@
 const create = document.querySelector('#create-form');
       create.addEventListener('submit', (e)=>{
         e.preventDefault();
-    
         db.collection("show_info").add({
-
           title : create.title.value,
           notice : create.notice.value,
           startday : create.startday.value,

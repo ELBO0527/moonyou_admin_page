@@ -112,21 +112,33 @@ const setupPosts = (data)=>{
  
     $(document).ready(function(){
         $('.collapsible').collapsible();
-      });
+      })
 
       document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, options);
-      });
-    
-      // Or with jQuery
-    
+      })
       $(document).ready(function(){
         $('select').formSelect();
-      });
+      })
+      // Or with jQuery   
+
+      //진행중 
+      $(document).ready(function(){
+        var div;
+        var daybtn = document.getElementById("daybtn");
+        daybtn.addEventListener("click",addbtnClick,false);
+        function addbtnClick(){
+            var input1 = document.createElement("<input type='text' class='DATE' />");
+            input1.setAttribute("class")
+            div = document.getElementById("daytime")
+            div.append(input1);
+        };
+           
+    })
 
   $(function() {
-      $("#time1,#time2").timepicker({
+      $(".time1,.time2").timepicker({
           timeFormat: 'h:mm p',
           interval: 60,
           minTime: '10',
@@ -136,53 +148,65 @@ const setupPosts = (data)=>{
           dynamic: false,
           dropdown: true,
           scrollbar: true        
-      });
-  });    
-  $(function() {
-$('#datepicker').datepicker({
+      })
+  })   
+
+  $('.DATE').datepicker({
     format: 'yy.mm.dd',
-    language: "kr"
-  })
   })
 
-
-
-    $(function() {
+  $(function() {
+        var yearVal;
+        var monthVal;
+        var dayVal;
+        var fyearVal;
+        var fmonthVal;
+        var fdayVal;
+        var startday;
+        var finishday;
     $("#year").change(function(){
-        const yearVal =  $(this).val();
+         yearVal =  $(this).val();
         console.log(yearVal);
+     })
+     $("#month").change(function(){
+          monthVal =  $(this).val();
+         console.log(monthVal);
+     }) 
+   $("#day").change(function(){
+          dayVal =  $(this).val();
+         console.log(dayVal);
+     })
+     $("#fyear").change(function(){
+          fyearVal =  $(this).val();
+         console.log(fyearVal);
+     })
+     $("#fmonth").change(function(){
+          fmonthVal =  $(this).val();
+         console.log(fmonthVal);
+     }) 
+     $("#fday").change(function(){
+          fdayVal =  $(this).val();
+         console.log(fdayVal);
+     })
+        startday= yearVal+"."+monthVal+"."+dayVal;
+        console.log(startday);
+        finishday= fyearVal+"."+fmonthVal+"."+fdayVal;
+        console.log(finishday);
     })
-   $("#month").change(function(){
-        const monthVal =  $(this).val();
-        console.log(monthVal);
-    }) 
-    $("#day").change(function(){
-        const dayVal =  $(this).val();
-        console.log(dayVal);
-    })
-    $("#fyear").change(function(){
-        const fyearVal =  $(this).val();
-        console.log(fyearVal);
-    })
-    $("#fmonth").change(function(){
-        const fmonthVal =  $(this).val();
-        console.log(fmonthVal);
-    }) 
-    $("#fday").change(function(){
-        const fdayVal =  $(this).val();
-        console.log(fdayVal);
-
-    })
-
-});
-
-var addday = document.getElementById("addday");
-
-addday.addEventListener("click",addbtnClick,false);
-
-function addbtnClick(){
-    var div = document.createElement('div');
-    div.innerHTML = document.getElementById('dayg').innerHTML;
-    document.getElementById('dayfield').appendChild(div);
-}	
 }
+//공연장선택
+$(function() {
+    var showplace;
+   var img;
+    var imagePreview=document.getElementById("imagePreview");
+    $(".place").change(function(){
+       showplace =  $(this).val();
+       console.log(showplace);
+       //     
+       img = document.createElement( "img");
+       img.setAttribute( "src", "../img/" + showplace + ".png");
+       imagePreview.appendChild(img);
+       console.log(img);
+       imagePreview.replaceChild(img, imagePreview.firstChild);
+})
+})
